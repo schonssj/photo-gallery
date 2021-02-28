@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="photogallery">
+	<head>
+		<base href="/">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Photo Gallery</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/efects.css">
+		<script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-animate.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+        <script src="js/lib/angular-resource.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/controllers/groups-controller.js"></script>
+        <script src="js/controllers/photo-controller.js"></script>
+		<script src="js/controllers/photos-controller.js"></script>
+		<script src="js/directives/my-directives.js"></script>
+        <script src="js/services/my-services.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<ng-view></ng-view>
+		</div>
+	</body>
+</html>

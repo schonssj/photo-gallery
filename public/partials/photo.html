@@ -1,0 +1,59 @@
+<div class="page-header text-center">
+	<h1>{{photo.title}}</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+<form novalidate name="form" class="row" ng-submit="submit()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Title</label>
+			<input name="title" class="form-control" ng-model="photo.title" required>  
+
+			<span ng-show="form.$submitted && form.title.$error.required"
+				class="form-control alert-danger">
+				Title is required!
+			</span>
+			<span ng-show="form.$submitted && form.title.$error.maxlength" 
+				class="form-control alert-danger">
+				Title must have at most 20 characters!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>URL</label>
+			<input name="url" class="form-control" ng-model="photo.url" required>
+
+			<span ng-show="form.$submitted && form.url.$error.required" 
+				class="form-control alert-danger">
+				URL is required!
+			</span> 
+		</div>
+		<div class="form-group">
+			<label>Description</label>
+			<textarea name="description" class="form-control" ng-model="photo.description">
+			</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Group</label>
+			<select name="group" ng-model="photo.group" class="form-control" 
+					required ng-controller="GroupsController" 
+					ng-options="group._id as (group.name | uppercase) for group in groups">
+				<option value="">Choose a group</option>
+			</select>
+			<span ng-show="form.$submitted && form.group.$error.required" 
+				class="form-control alert-danger">
+				Group is required!
+			</span>
+		</div>
+
+		<button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">
+			Save
+		</button>
+		<a href="/" my-focus class="btn btn-primary">Back</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<my-photo url="{{photo.url}}" title="{{photo.title}}"></my-photo>
+	</div>
+</form>
